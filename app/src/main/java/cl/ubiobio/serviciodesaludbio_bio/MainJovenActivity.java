@@ -1,6 +1,7 @@
 package cl.ubiobio.serviciodesaludbio_bio;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,12 +18,18 @@ import android.view.MenuItem;
 public class MainJovenActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private SharedPreferences sharedPre;
+    private SharedPreferences.Editor editorSP;
+    private int MODO_VIEJO = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joven);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sharedPre = getSharedPreferences(getString(R.string.sharedPreID), MODE_PRIVATE);
+        editorSP = sharedPre.edit();
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +103,8 @@ public class MainJovenActivity extends AppCompatActivity
         }else if (id == R.id.nav_llame) {
 
         }else if (id == R.id.nav_cambiar_a_mayor){
+            editorSP.putInt("MODO",MODO_VIEJO);
+            editorSP.commit();
             Intent cambiarm = new Intent( MainJovenActivity.this, MainMayorActivity.class);
             startActivity(cambiarm);
             finish();
