@@ -4,16 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="SS Bío-Bío"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:label="SS Bío-Bío">
-        <!--android:label="@string/app_name"-->
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <!-- android:label="@string/app_name" -->
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +20,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <activity android:name=".MainMayorActivity" />
-            <activity
-                android:name=".MainJovenActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-                <!--android:label="@string/title_activity_joven"-->
+        <activity android:name=".MainMayorActivity" />
+        <activity
+            android:name=".MainJovenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- android:label="@string/title_activity_joven" -->
         </activity>
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".HVisitaActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".CHoraActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".DSangreActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".CEstadoActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".CServiciosActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".FarmaciaActivity" />
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".SaludRespondeActivity"></activity>
     </application>
 
 </manifest>

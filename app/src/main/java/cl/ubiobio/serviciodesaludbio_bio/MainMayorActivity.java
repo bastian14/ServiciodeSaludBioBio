@@ -10,6 +10,13 @@ import android.widget.Button;
 public class MainMayorActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button cambiarj;
+    private Button hvisita;
+    private Button consultah;
+    private Button consultap;
+    private Button farmaciat;
+    private Button saludresp;
+    private Button dsangre;
+    private Button carteraserv;
     private SharedPreferences sharedPre;
     private SharedPreferences.Editor editorSP;
     private int MODO_JOVEN = 1;
@@ -21,15 +28,64 @@ public class MainMayorActivity extends AppCompatActivity implements View.OnClick
         sharedPre = getSharedPreferences(getString(R.string.sharedPreID), MODE_PRIVATE);
         editorSP = sharedPre.edit();
         cambiarj = findViewById(R.id.cambiar_a_joven);
+        hvisita = findViewById(R.id.hvisita);
+        consultah = findViewById(R.id.consultah);
+        consultap = findViewById(R.id.consultap);
+        farmaciat = findViewById(R.id.farmaciaturno);
+        saludresp = findViewById(R.id.saludresp);
+        dsangre = findViewById(R.id.dsangre);
+        carteraserv = findViewById(R.id.carteraserv);
         cambiarj.setOnClickListener(this);
+        hvisita.setOnClickListener(this);
+        consultah.setOnClickListener(this);
+        consultap.setOnClickListener(this);
+        farmaciat.setOnClickListener(this);
+        saludresp.setOnClickListener(this);
+        dsangre.setOnClickListener(this);
+        carteraserv.setOnClickListener(this);
     }
 
+    /*Esta funcion abre una pantalla diferente dependiendo del boton que seleccionamos, ej: si el boton que seleccionamos tiene
+    id=hvisita, entonces cambiaremos a la clase HvisitaActivity y por consiguiente al layout activity_hvisita*/
     @Override
     public void onClick(View v) {
-        editorSP.putInt("MODO",MODO_JOVEN);
-        editorSP.commit();
-        Intent cambiarj = new Intent(MainMayorActivity.this, MainJovenActivity.class);
-        startActivity(cambiarj);
-        finish();
+        switch (v.getId()){
+            case R.id.cambiar_a_joven:
+                editorSP.putInt("MODO",MODO_JOVEN);
+                editorSP.commit();
+                Intent cambiarj = new Intent(MainMayorActivity.this, MainJovenActivity.class);
+                startActivity(cambiarj);
+                finish();
+                break;
+            case R.id.hvisita:
+                Intent hvisita = new Intent(MainMayorActivity.this, HVisitaActivity.class);
+                startActivity(hvisita);
+                break;
+            case R.id.consultah:
+                Intent consultah = new Intent(MainMayorActivity.this, CHoraActivity.class);
+                startActivity(consultah);
+                break;
+            case R.id.consultap:
+                Intent consultap = new Intent(MainMayorActivity.this, CEstadoActivity.class);
+                startActivity(consultap);
+                break;
+            case R.id.farmaciaturno:
+                Intent farmaciat = new Intent(MainMayorActivity.this, FarmaciaActivity.class);
+                startActivity(farmaciat);
+                break;
+            case R.id.saludresp:
+                Intent saludresp = new Intent(MainMayorActivity.this, SaludRespondeActivity.class);
+                startActivity(saludresp);
+                break;
+            case R.id.dsangre:
+                Intent dsangre = new Intent(MainMayorActivity.this, DSangreActivity.class);
+                startActivity(dsangre);
+                break;
+            case R.id.carteraserv:
+                Intent carteraserv = new Intent(MainMayorActivity.this, CServiciosActivity.class);
+                startActivity(carteraserv);
+                break;
+        }
+
     }
 }

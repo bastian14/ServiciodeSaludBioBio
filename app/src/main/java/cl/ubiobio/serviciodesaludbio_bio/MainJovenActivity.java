@@ -1,5 +1,7 @@
 package cl.ubiobio.serviciodesaludbio_bio;
 
+import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,7 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainJovenActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, HoraVisitaFragment.OnFragmentInteractionListener {
 
     private SharedPreferences sharedPre;
     private SharedPreferences.Editor editorSP;
@@ -87,9 +89,12 @@ public class MainJovenActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment miFragment = null;
+        boolean fragmentSeleccionado = false;
 
         if (id == R.id.nav_visita) {
-            // Handle the camera action
+           miFragment = new HoraVisitaFragment();
+           fragmentSeleccionado = true;
         } else if (id == R.id.nav_consulta) {
 
         } else if (id == R.id.nav_paciente) {
@@ -110,9 +115,18 @@ public class MainJovenActivity extends AppCompatActivity
             finish();
         }
 
+        if (fragmentSeleccionado==true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_joven, miFragment).commit();
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

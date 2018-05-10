@@ -8,6 +8,8 @@
     android:background="@color/Medicine"
     tools:context="cl.ubiobio.serviciodesaludbio_bio.MainMayorActivity">
 
+    <!--Creamos 4 LinearLayout con el mismo peso(1) para que ocupen el mismo alto de la pantalla
+    y a cada LinearLayout le asignamos 2 botones-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +18,7 @@
         android:padding="10dp">
 
         <Button
+            android:id="@+id/hvisita"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
@@ -23,6 +26,7 @@
             android:background="@drawable/horario_visita"/>
 
         <Button
+            android:id="@+id/dsangre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -41,6 +45,7 @@
         android:paddingBottom="10dp">
 
         <Button
+            android:id="@+id/consultah"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
@@ -48,6 +53,7 @@
             android:background="@drawable/consulta_hora"/>
 
         <Button
+            android:id="@+id/consultap"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -65,6 +71,7 @@
         android:paddingBottom="10dp">
 
         <Button
+            android:id="@+id/carteraserv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
@@ -72,6 +79,7 @@
             android:background="@drawable/cartera_servicios"/>
 
         <Button
+            android:id="@+id/farmaciaturno"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -90,13 +98,14 @@
         android:paddingBottom="10dp">
 
         <Button
+            android:id="@+id/saludresp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/salud_responde"/>
 
-
+        <!--Creamos un LinearLayout adicional para poner un fondo blanco al vector cambiar_modo-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
