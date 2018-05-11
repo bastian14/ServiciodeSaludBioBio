@@ -9,5 +9,7 @@ public class FarmaciaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farmacia);
+        //cambio el titulo del ActionBar por uno correspondiente a la clase
+        getSupportActionBar().setTitle("Farmacia de turno");
     }
 }

@@ -10,9 +10,10 @@ import android.os.Bundle;
 
 public class SplashActivity extends AppCompatActivity {
     private SplashActivity _this = this;
-    private SharedPreferences sharedPre;
-    private SharedPreferences.Editor editorSP;
+    private SharedPreferences sharedPre; //variable donde se almacenan las preferencias
+    private SharedPreferences.Editor editorSP; //editor de preferencias (con editorSP.putInt() guardaremos el modo elegido)
 
+    //inicializo valores de modo utiles para guardar las preferencias de pantalla
     private int NO_PREFERENCES = 0;
     private int MODO_JOVEN = 1;
     private int MODO_VIEJO = 2;
@@ -30,16 +31,16 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent iniciar = null;
-                if(sharedPre.getInt("MODO", NO_PREFERENCES) == NO_PREFERENCES){
+                if(sharedPre.getInt("MODO", NO_PREFERENCES) == NO_PREFERENCES){ //si es la primera vez que se abre la aplicacion entonces preguntara que modo desea elegir
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(_this);
                     alertBuilder.setMessage("se recomienda el \"Modo Mayor\" para adultos mayores")
                             .setTitle("Elija el modo de interfaz")
                             .setPositiveButton("Modo Joven", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    editorSP.putInt("MODO",MODO_JOVEN);
+                                    editorSP.putInt("MODO",MODO_JOVEN); //si elige modo joven se guardara en las preferencias de usuario
                                     editorSP.commit();
-                                    Intent iniciar = new Intent(_this, MainJovenActivity.class);
+                                    Intent iniciar = new Intent(_this, MainJovenActivity.class); //nos redireccionara a la pantalla del modo joven
                                     startActivity(iniciar);
                                     finish();
                                 }
@@ -47,9 +48,9 @@ public class SplashActivity extends AppCompatActivity {
                             .setNegativeButton("Modo Mayor", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    editorSP.putInt("MODO",MODO_VIEJO);
+                                    editorSP.putInt("MODO",MODO_VIEJO);//si elige modo viejo se guardara en las preferencias de usuario
                                     editorSP.commit();
-                                    Intent iniciar = new Intent(_this, MainMayorActivity.class);
+                                    Intent iniciar = new Intent(_this, MainMayorActivity.class);//nos redireccionara a la pantalla del modo mayor
                                     startActivity(iniciar);
                                     finish();
                                 }
@@ -57,9 +58,9 @@ public class SplashActivity extends AppCompatActivity {
                     AlertDialog dialog = alertBuilder.create();
                     dialog.show();
                 }else{
-                    if(sharedPre.getInt("MODO", NO_PREFERENCES) == MODO_JOVEN){
+                    if(sharedPre.getInt("MODO", NO_PREFERENCES) == MODO_JOVEN){ //si ya existen preferencias y esta es MODO_JOVEN, entonces al abrir la app no preguntara que modo elegir, si no que nos redireccionara inmediatamente a la pantalla de modo joven
                         iniciar = new Intent(_this, MainJovenActivity.class);
-                    }else{
+                    }else{ //Por el contrario, si la preferencia existente no es MODO_JOVEN, entonces sera MODO_VIEJO, por lo tanto al abrir la app no preguntara que modo elegir, si no que nos redireccionara inmediatamente a la pantalla de modo mayor
                         iniciar = new Intent(_this, MainMayorActivity.class);
                     }
                     startActivity(iniciar);

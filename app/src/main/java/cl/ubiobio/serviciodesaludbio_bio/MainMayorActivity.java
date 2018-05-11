@@ -27,6 +27,7 @@ public class MainMayorActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_mayor);
         sharedPre = getSharedPreferences(getString(R.string.sharedPreID), MODE_PRIVATE);
         editorSP = sharedPre.edit();
+        //Asocio los id de los botones del layout activity_mayor a botones de la clase
         cambiarj = findViewById(R.id.cambiar_a_joven);
         hvisita = findViewById(R.id.hvisita);
         consultah = findViewById(R.id.consultah);
@@ -35,6 +36,7 @@ public class MainMayorActivity extends AppCompatActivity implements View.OnClick
         saludresp = findViewById(R.id.saludresp);
         dsangre = findViewById(R.id.dsangre);
         carteraserv = findViewById(R.id.carteraserv);
+        //llamo a la funcion setOnClickListener(), para realizar una accion al momento de presionar un boton determinado
         cambiarj.setOnClickListener(this);
         hvisita.setOnClickListener(this);
         consultah.setOnClickListener(this);
@@ -50,6 +52,7 @@ public class MainMayorActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            //al presionar el boton Cambiar a Modo Joven guardamos el cambio en las preferencias de usuario, por lo tanto la proxima vez que el usuario abra la aplicacion, aparecera la pantalla del modo joven
             case R.id.cambiar_a_joven:
                 editorSP.putInt("MODO",MODO_JOVEN);
                 editorSP.commit();

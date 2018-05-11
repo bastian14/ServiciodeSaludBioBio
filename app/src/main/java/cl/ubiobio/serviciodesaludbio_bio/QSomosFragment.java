@@ -1,7 +1,7 @@
 package cl.ubiobio.serviciodesaludbio_bio;
 
-/*Fragment asociado al layout activity_hvisita, su funcion es ser llamado en el MainJovenActivity para luego mostrar su layout en la pantalla
-  principal del modo joven (content_joven)*/
+/*Fragment asociado al layout activity_qsomos, su funcion es ser llamado en el MainJovenActivity para luego mostrar su layout en la pantalla
+  principal del modo joven (content_joven). Este fragment en particular es el que aparece por defecto en el modo joven*/
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,12 +14,12 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HoraVisitaFragment.OnFragmentInteractionListener} interface
+ * {@link QSomosFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HoraVisitaFragment#newInstance} factory method to
+ * Use the {@link QSomosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HoraVisitaFragment extends Fragment {
+public class QSomosFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class HoraVisitaFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public HoraVisitaFragment() {
+    public QSomosFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class HoraVisitaFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HoraVisitaFragment.
+     * @return A new instance of fragment QSomosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HoraVisitaFragment newInstance(String param1, String param2) {
-        HoraVisitaFragment fragment = new HoraVisitaFragment();
+    public static QSomosFragment newInstance(String param1, String param2) {
+        QSomosFragment fragment = new QSomosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +66,7 @@ public class HoraVisitaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_hvisita, container, false);
+        return inflater.inflate(R.layout.activity_qsomos, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
